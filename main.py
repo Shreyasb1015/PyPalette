@@ -65,9 +65,12 @@ class PaintGUI:
         pass
     
     def brush_plus(self):
-        pass
+        self.brush_width += 1
+        
     def brush_minus(self):
-        pass
+        if self.brush_width >1:
+           self.brush_width -=1
+        
     
     def change_color(self):
         pass
