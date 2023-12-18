@@ -39,10 +39,10 @@ class PaintGUI:
         self.save_btn=Button(self.btn_frame,text="Save",command=self.save)
         self.save_btn.grid(row=1,column=2,sticky=W+E)
         
-        self.bplus_btn=Button(self.btn_frame,text="B+",command=self.brush_plus)
+        self.bplus_btn=Button(self.btn_frame,text="Increase brush size",command=self.brush_plus)
         self.bplus_btn.grid(row=0,column=0,sticky=W+E)
         
-        self.bminus_btn=Button(self.btn_frame,text="B-",command=self.brush_minus)
+        self.bminus_btn=Button(self.btn_frame,text="Decrease brush size",command=self.brush_minus)
         self.bminus_btn.grid(row=1,column=0,sticky=W+E)
         
         self.color_btn=Button(self.btn_frame,text="Change Color",command=self.change_color)
