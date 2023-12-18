@@ -78,7 +78,7 @@ class PaintGUI:
         
     
     def change_color(self):
-        pass
+       _,self.current_color= colorchooser.askcolor(title="Choose A Color")
     
     def on_closing(self):
         pass
