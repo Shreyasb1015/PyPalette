@@ -51,8 +51,11 @@ class PaintGUI:
         self.root.attributes("-topmost",True)
         self.root.mainloop()
         
-    def paint(self):
-        pass
+    def paint(self,event):
+        x1,y1=(event.x-1),(event.y-1)
+        x2,y2=(event.x+1),(event.y+1)
+        self.cnv.create_rectangle(x1,y1,x2,y2,outline=self.current_color,fill=self.current_color,width=self.brush_width) # type: ignore
+        self.draw.rectangle([x1,y1,x2+self.brush_width,y2+self.brush_wdith],outline=self.current_color,width=self.brush_width)  # type: ignore
     
     def clear(self):
         self.cnv.delete("all")
