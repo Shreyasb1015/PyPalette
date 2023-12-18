@@ -55,7 +55,8 @@ class PaintGUI:
         pass
     
     def clear(self):
-        pass
+        self.cnv.delete("all")
+        self.draw.rectangle([0,0,1000,1000],fill="white")   # type: ignore
     
     def save(self):
         pass
