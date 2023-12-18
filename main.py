@@ -64,7 +64,7 @@ class PaintGUI:
         self.draw.rectangle([0,0,1000,1000],fill="white")   # type: ignore
     
     def save(self):
-        filename =filedialog.asksaveasfilename(initialfile="untitled.png",defaultextension="png",filetypes=[("PNG","JPG"),(".png",".jpg")])
+        filename =filedialog.asksaveasfilename(initialfile="untitled.png",defaultextension="png",filetypes=[("PNG",".png"),("JPG",".jpg")])
         
         if filename !="":
             self.image.save(filename)
@@ -81,7 +81,12 @@ class PaintGUI:
        _,self.current_color= colorchooser.askcolor(title="Choose A Color")
     
     def on_closing(self):
-        pass
+        answer=messagebox.askyesnocancel("Quit","Do you want to save your work?",parent=self.root)
+        if answer is not None:
+            if answer:
+                self.save()
+            self.root.destroy()
+            exit(0)
     
 
 PaintGUI()        
