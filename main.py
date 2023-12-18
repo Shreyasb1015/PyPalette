@@ -1,5 +1,6 @@
 
 from tkinter import *
+from tkinter import filedialog,messagebox,colorchooser
 from PIL import Image ,ImageDraw
 import PIL
 
@@ -55,14 +56,18 @@ class PaintGUI:
         x1,y1=(event.x-1),(event.y-1)
         x2,y2=(event.x+1),(event.y+1)
         self.cnv.create_rectangle(x1,y1,x2,y2,outline=self.current_color,fill=self.current_color,width=self.brush_width) # type: ignore
-        self.draw.rectangle([x1,y1,x2+self.brush_width,y2+self.brush_wdith],outline=self.current_color,width=self.brush_width)  # type: ignore
+        self.draw.rectangle([x1,y1,x2+self.brush_width,y2+self.brush_width],outline=self.current_color,width=self.brush_width)  # type: ignore
+        
     
     def clear(self):
         self.cnv.delete("all")
         self.draw.rectangle([0,0,1000,1000],fill="white")   # type: ignore
     
     def save(self):
-        pass
+        filename =filedialog.asksaveasfilename(initialfile="untitled.png",defaultextension="png",filetypes=[("PNG","JPG"),(".png",".jpg")])
+        
+        if filename !="":
+            self.image.save(filename)
     
     def brush_plus(self):
         self.brush_width += 1
